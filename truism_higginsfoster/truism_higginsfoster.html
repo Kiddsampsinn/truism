@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link href="css/truism.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	
+<div>
+  <video id="displayed_video" preload="auto" muted="muted" autoplay="autoplay" loop="loop" >
+    <source src="video/Truism.mp4" type="video/mp4">
+  </video>
+</div>	
+	
+<div class="centered_text">
+<h1 id="truism" onmouseover="OnTruismText()" onmouseout="outTruismText()" onClick="changeVideo()">If You Have Many Desires Your Life Will Be Interesting</h1>
+
+</div>
+	
+<script>
+	
+	var channel = 1;
+	var pauseAt = 0;
+	// reference to video element
+	var displayed_video = document.getElementById("displayed_video");
+	// stuff for sound
+	var mySound = new Audio("sound/desireinterest.mp3");
+	// references to the videos
+	
+	var truism = "video/truism.mp4";
+	var secondtruism = "video/secondtruism.mp4";
+	
+function OnTruismText(){
+	document.getElementById("displayed_video").style.filter = "contrast(200%)";
+	
+}
+function outTruismText(){	
+	document.getElementById("displayed_video").style.filter = "contrast(100%)";
+		
+	}
+		
+function changeVideo(){
+			console.log("will change video");
+	        pauseAt = displayed_video.currentTime;
+	if (channel ==0){
+		displayed_video.src = truism;
+		displayed_video.currentTime = pauseAt;
+		channel = 1;
+	}
+	else{
+		displayed_video.src = secondtruism;
+		displayed_video.currentTime = pauseAt;
+		channel = 0;
+	}
+	mySound.play();
+		}
+	
+	
+	
+</script>
+</body>
+</html>
